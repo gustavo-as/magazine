@@ -1,4 +1,4 @@
-package br.com.gustavosimoes.magazine;
+package br.com.gustavosimoes.magazine.config.init;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
