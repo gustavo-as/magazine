@@ -29,6 +29,11 @@ public class StoreControl {
         return store;
     }
 
+    @PutMapping("/{name}")
+    public Store put(@PathVariable String name, @RequestBody Store store){
+        store.setName(store.getName() + " updated!");
+        return store;
+    }
 
 
 }
