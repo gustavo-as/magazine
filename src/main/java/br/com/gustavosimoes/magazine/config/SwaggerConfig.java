@@ -25,8 +25,8 @@ public class SwaggerConfig {
     }
     private ApiInfo apiEndPointsInfo() {
         return new ApiInfoBuilder().title("Magazine REST API")
-                .description("Employee Management REST API")
-                .contact(new Contact("Ramesh Fadatare", "www.javaguides.net", "ramesh24fadatare@gmail.com"))
+                .description("Magazine Management REST API")
+                .contact(new Contact("Gustavo Alves Simões", "https://www.linkedin.com/in/gustavo-simoes/", "gustavo.simoes@hotmail.com.br"))
                 .license("Apache 2.0")
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
                 .version("1.0.0")
