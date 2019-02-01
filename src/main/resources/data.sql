@@ -1,1 +1,1 @@
-insert into store values (1, 'Magazine Luiza', 'Loja Virtual');
+insert into store (id, name, address) values (1, 'Magazine Luiza', 'Loja Virtual');
