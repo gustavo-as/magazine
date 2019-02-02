@@ -5,6 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -22,5 +24,9 @@ public class Order {
 
     @ManyToOne(optional = false)
     private Store store = new Store();
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id")
+    private Set<OrderItem> items = new HashSet<OrderItem>();
 
 }
