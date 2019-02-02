@@ -1,11 +1,10 @@
 package br.com.gustavosimoes.magazine.model;
 
+import br.com.gustavosimoes.magazine.model.enumerator.EnumOrderStatus;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -15,7 +14,13 @@ public class Order {
     @Id
     @GeneratedValue
     private Long id;
-
     private String address;
+    private LocalDateTime confirmationDate;
+
+    @Enumerated(EnumType.STRING)
+    private EnumOrderStatus status;
+
+    @ManyToOne(optional = false)
+    private Store store;
 
 }
