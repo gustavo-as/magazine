@@ -1,6 +1,5 @@
 package br.com.gustavosimoes.magazine.controller;
 
-import br.com.gustavosimoes.magazine.model.Order;
 import br.com.gustavosimoes.magazine.model.OrderItem;
 import br.com.gustavosimoes.magazine.service.OrderItemService;
 import org.slf4j.Logger;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/orderitems")
+@RequestMapping("/orderItems")
 public class OrderItemControl {
 
     private static final Logger log = LoggerFactory.getLogger(OrderItemControl.class);
@@ -20,8 +19,8 @@ public class OrderItemControl {
     OrderItemService orderItemService;
 
     @PostMapping("/{idOrder}")
-    public OrderItem post(@PathVariable Long idOrder, @RequestBody List<OrderItem> orderItems){
-        return null;
+    public List<OrderItem> post(@PathVariable Long idOrder, @RequestBody List<OrderItem> orderItems) throws Exception {
+        return orderItemService.save(idOrder, orderItems);
     }
 
 }

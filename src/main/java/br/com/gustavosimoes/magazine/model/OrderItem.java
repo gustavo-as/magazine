@@ -6,11 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
 @Entity
-public class OrderItem {
+public class OrderItem implements Serializable {
+
+    private static final long serialVersionUID = 2359929966451684036L;
 
     @Id
     @GeneratedValue

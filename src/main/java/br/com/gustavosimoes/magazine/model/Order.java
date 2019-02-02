@@ -1,6 +1,7 @@
 package br.com.gustavosimoes.magazine.model;
 
 import br.com.gustavosimoes.magazine.model.enumerator.EnumOrderStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -27,6 +28,7 @@ public class Order {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")
+    @JsonIgnore
     private Set<OrderItem> items = new HashSet<OrderItem>();
 
 }
