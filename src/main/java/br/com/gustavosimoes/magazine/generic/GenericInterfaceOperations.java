@@ -8,7 +8,7 @@ import java.util.List;
  */
 public interface GenericInterfaceOperations<E> {
 
-    void save(final E entity);
+    E save(final E entity);
     E findById(final Long id) throws Exception;
     void delete(final Long id);
 

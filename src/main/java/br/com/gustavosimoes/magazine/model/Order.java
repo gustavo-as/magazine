@@ -21,6 +21,6 @@ public class Order {
     private EnumOrderStatus status;
 
     @ManyToOne(optional = false)
-    private Store store;
+    private Store store = new Store();
 
 }

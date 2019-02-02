@@ -1,8 +1,9 @@
-package br.com.gustavosimoes.magazine.service;
+package br.com.gustavosimoes.magazine.service.impl;
 
 import br.com.gustavosimoes.magazine.exception.ServiceException;
 import br.com.gustavosimoes.magazine.model.Store;
 import br.com.gustavosimoes.magazine.repository.StoreRepository;
+import br.com.gustavosimoes.magazine.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +18,11 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     @Transactional
-    public void save(Store entity) {
-
+    public Store save(Store entity) {
+        return storeRepository.save(entity);
     }
 
     @Override
-    @Transactional
     public Store findById(Long id) throws Exception {
         return storeRepository.findById(id).orElseThrow(() ->
                 new ServiceException(String.format("Store not found. %s", id)));
@@ -41,13 +41,11 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    @Transactional
     public List<Store> findByIds(List<Long> ids) {
         return null;
     }
 
     @Override
-    @Transactional
     public List<Store> findAll() {
         return null;
     }
@@ -59,7 +57,6 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    @Transactional
     public Store findByName(String name) throws Exception {
         Store store = storeRepository.findByName(name);
         if(store != null)

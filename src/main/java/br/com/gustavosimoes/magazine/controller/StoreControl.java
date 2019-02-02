@@ -39,8 +39,7 @@ public class StoreControl {
 
     @PostMapping
     public Store post(@RequestBody Store store){
-        store.setName(store.getName() + " Saved!");
-        return store;
+        return storeService.save(store);
     }
 
     @PutMapping("/{name}")
