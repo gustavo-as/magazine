@@ -31,4 +31,9 @@ public class Order {
     @JsonIgnore
     private Set<OrderItem> items = new HashSet<OrderItem>();
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id")
+    private Payment payment;
+
+
 }

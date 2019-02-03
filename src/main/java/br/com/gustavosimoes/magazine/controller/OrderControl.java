@@ -21,5 +21,4 @@ public class OrderControl {
         order.getStore().setId(idStore);
         return orderService.save(order);
     }
-
 }
