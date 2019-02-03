@@ -35,7 +35,7 @@ public class OrderItemServiceImpl implements OrderItemService {
     @Override
     @Transactional
     public void delete(Long id) {
-
+        orderItemRepository.deleteById(id);
     }
 
     @Override
@@ -71,7 +71,6 @@ public class OrderItemServiceImpl implements OrderItemService {
 
     @Override
     public void refundOrderItem(Long id) {
-        OrderItem orderItem = orderItemRepository.findById(id).get();
-        orderItem.set
+        this.delete(id);
     }
 }
