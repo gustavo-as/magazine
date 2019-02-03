@@ -35,7 +35,7 @@ public class OrderControl {
         return orderService.save(order);
     }
 
-    @PutMapping("{id}/pay")
+    @PostMapping("{id}/pay")
     public Order pay(@PathVariable Long id, @RequestBody Payment payment) {
         return orderService.payOrder(id, payment);
     }
@@ -43,5 +43,10 @@ public class OrderControl {
     @GetMapping("/paid")
     public List<Order> getAllOrdersPaid(){
         return orderService.getAllOrderPaid();
+    }
+
+    @PutMapping("/{id}/refund")
+    public void refundOrder(@PathVariable Long id) {
+        orderService.refund(id);
     }
 }

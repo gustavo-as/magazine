@@ -11,4 +11,6 @@ public interface OrderService extends GenericInterfaceOperations<Order> {
     Order payOrder(Long id, Payment payment);
 
     List<Order> getAllOrderPaid();
+
+    void refund(Long id);
 }

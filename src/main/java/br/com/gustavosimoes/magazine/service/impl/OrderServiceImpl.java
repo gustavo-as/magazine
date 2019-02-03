@@ -2,6 +2,7 @@ package br.com.gustavosimoes.magazine.service.impl;
 
 import br.com.gustavosimoes.magazine.model.Order;
 import br.com.gustavosimoes.magazine.model.Payment;
+import br.com.gustavosimoes.magazine.model.enumerator.EnumOrderStatus;
 import br.com.gustavosimoes.magazine.repository.OrderRepository;
 import br.com.gustavosimoes.magazine.repository.StoreRepository;
 import br.com.gustavosimoes.magazine.service.OrderService;
@@ -63,6 +64,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public Order payOrder(Long id, Payment payment) {
         Order order = this.findById(id);
         order.setPayment(payment);
@@ -74,5 +76,14 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getAllOrderPaid() {
         List<Order> orders = orderRepository.findAllByPaymentIsNotNull();
         return orders;
+    }
+
+    @Override
+    public void refund(Long id) {
+        orderRepository.findById(id).map(order -> {
+            order.setStatus(EnumOrderStatus.REFUNDED);
+            return orderRepository.save(order);
+        });
+
     }
 }
