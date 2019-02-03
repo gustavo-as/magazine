@@ -40,4 +40,8 @@ public class OrderControl {
         return orderService.payOrder(id, payment);
     }
 
+    @GetMapping("/paid")
+    public List<Order> getAllOrdersPaid(){
+        return orderService.getAllOrderPaid();
+    }
 }

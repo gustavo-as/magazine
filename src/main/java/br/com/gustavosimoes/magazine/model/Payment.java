@@ -1,20 +1,19 @@
 package br.com.gustavosimoes.magazine.model;
 
+import br.com.gustavosimoes.magazine.generic.GenericModel;
 import br.com.gustavosimoes.magazine.model.enumerator.EnumStatusPayment;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
-public class Payment implements Serializable {
-    private static final long serialVersionUID = -4689257200138737293L;
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Payment extends GenericModel {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    private static final long serialVersionUID = -4932533674481331662L;
 
     @Enumerated(EnumType.STRING)
     private EnumStatusPayment status;

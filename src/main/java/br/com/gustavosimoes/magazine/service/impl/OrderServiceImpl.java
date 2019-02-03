@@ -52,7 +52,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> findAll() {
-        return (List<Order>) orderRepository.findAll();
+        Iterable<Order> orders = orderRepository.findAll();
+        return (List<Order>) orders;
     }
 
     @Override
@@ -65,6 +66,13 @@ public class OrderServiceImpl implements OrderService {
     public Order payOrder(Long id, Payment payment) {
         Order order = this.findById(id);
         order.setPayment(payment);
-        return orderRepository.save(order);
+        orderRepository.save(order);
+        return order;
+    }
+
+    @Override
+    public List<Order> getAllOrderPaid() {
+        List<Order> orders = orderRepository.findAllByPaymentIsNotNull();
+        return orders;
     }
 }

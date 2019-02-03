@@ -1,5 +1,6 @@
 package br.com.gustavosimoes.magazine.service.impl;
 
+import br.com.gustavosimoes.magazine.model.Order;
 import br.com.gustavosimoes.magazine.model.OrderItem;
 import br.com.gustavosimoes.magazine.repository.OrderItemRepository;
 import br.com.gustavosimoes.magazine.service.OrderItemService;
@@ -60,11 +61,11 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
-    @Transactional
-    public List<OrderItem> save(Long idOrder, List<OrderItem> orderItems){
-        orderItems.forEach(orderItem -> {
-            orderItem.setOrder(orderService.findById(idOrder));
-        });
-        return (List<OrderItem>) orderItemRepository.saveAll(orderItems);
+    public List<OrderItem> save(Long idOrder, List<OrderItem> orderItems) {
+        Order order = orderService.findById(idOrder);
+
+        order.addItems(orderItems);
+
+        return orderService.save(order).getItems();
     }
 }

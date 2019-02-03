@@ -1,21 +1,17 @@
 package br.com.gustavosimoes.magazine.model;
 
+import br.com.gustavosimoes.magazine.generic.GenericModel;
 import lombok.Data;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Data
 @Entity
-public class Store {
+public class Store extends GenericModel {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    private static final long serialVersionUID = 5874081386062225538L;
 
     private String name;
-
     private String address;
 
     public Store() {}

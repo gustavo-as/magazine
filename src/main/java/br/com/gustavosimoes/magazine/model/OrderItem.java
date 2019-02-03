@@ -1,5 +1,6 @@
 package br.com.gustavosimoes.magazine.model;
 
+import br.com.gustavosimoes.magazine.generic.GenericModel;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -11,18 +12,11 @@ import java.math.BigDecimal;
 
 @Data
 @Entity
-public class OrderItem implements Serializable {
+public class OrderItem extends GenericModel {
 
-    private static final long serialVersionUID = 2359929966451684036L;
-
-    @Id
-    @GeneratedValue
-    private Long id;
+    private static final long serialVersionUID = 508722451400537588L;
 
     private String description;
     private BigDecimal unitPrice;
     private BigDecimal quantity;
-
-    @ManyToOne(optional = false)
-    private Order order;
 }

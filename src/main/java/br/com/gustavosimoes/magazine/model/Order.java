@@ -1,22 +1,21 @@
 package br.com.gustavosimoes.magazine.model;
 
+import br.com.gustavosimoes.magazine.generic.GenericModel;
 import br.com.gustavosimoes.magazine.model.enumerator.EnumOrderStatus;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Order extends GenericModel {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    private static final long serialVersionUID = -569742913106311884L;
+
     private String address;
     private LocalDateTime confirmationDate;
 
@@ -28,12 +27,14 @@ public class Order {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")
-    @JsonIgnore
-    private Set<OrderItem> items = new HashSet<OrderItem>();
+    private List<OrderItem> items = new ArrayList<OrderItem>();
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")
     private Payment payment;
 
-
+    public void addItems(List<OrderItem> orderItems) {
+        this.items.addAll(orderItems);
+        System.out.println();
+    }
 }
