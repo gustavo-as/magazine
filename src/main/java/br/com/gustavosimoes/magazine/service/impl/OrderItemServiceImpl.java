@@ -60,6 +60,7 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
+    @Transactional
     public List<OrderItem> save(Long idOrder, List<OrderItem> orderItems){
         orderItems.forEach(orderItem -> {
             orderItem.setOrder(orderService.findById(idOrder));

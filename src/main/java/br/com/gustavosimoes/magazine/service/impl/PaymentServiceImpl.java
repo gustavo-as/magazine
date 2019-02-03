@@ -1,6 +1,8 @@
 package br.com.gustavosimoes.magazine.service.impl;
 
+import br.com.gustavosimoes.magazine.model.Order;
 import br.com.gustavosimoes.magazine.model.Payment;
+import br.com.gustavosimoes.magazine.repository.PaymentRepository;
 import br.com.gustavosimoes.magazine.service.OrderService;
 import br.com.gustavosimoes.magazine.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,9 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Autowired
     protected OrderService orderService;
+
+    @Autowired
+    protected PaymentRepository paymentRepository;
 
     @Override
     @Transactional
@@ -45,7 +50,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public List<Payment> findAll() {
-        return null;
+        return (List<Payment>) paymentRepository.findAll();
     }
 
     @Override
@@ -56,7 +61,6 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public Payment save(Long idOrder, Payment payment) {
-        orderService.findById(idOrder);
         return null;
     }
 }

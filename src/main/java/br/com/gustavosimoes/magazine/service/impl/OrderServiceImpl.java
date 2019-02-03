@@ -1,6 +1,7 @@
 package br.com.gustavosimoes.magazine.service.impl;
 
 import br.com.gustavosimoes.magazine.model.Order;
+import br.com.gustavosimoes.magazine.model.Payment;
 import br.com.gustavosimoes.magazine.repository.OrderRepository;
 import br.com.gustavosimoes.magazine.repository.StoreRepository;
 import br.com.gustavosimoes.magazine.service.OrderService;
@@ -29,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order findById(Long id) {
-        return null;
+        return orderRepository.findById(id).get();
     }
 
     @Override
@@ -51,12 +52,19 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> findAll() {
-        return null;
+        return (List<Order>) orderRepository.findAll();
     }
 
     @Override
     @Transactional
     public void delete(List<Long> ids) {
 
+    }
+
+    @Override
+    public Order payOrder(Long id, Payment payment) {
+        Order order = this.findById(id);
+        order.setPayment(payment);
+        return orderRepository.save(order);
     }
 }

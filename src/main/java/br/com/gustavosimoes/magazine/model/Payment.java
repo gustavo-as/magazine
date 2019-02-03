@@ -1,7 +1,6 @@
 package br.com.gustavosimoes.magazine.model;
 
 import br.com.gustavosimoes.magazine.model.enumerator.EnumStatusPayment;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,7 +21,4 @@ public class Payment implements Serializable {
     private String creditCardNumber;
     private LocalDateTime paymentDate = LocalDateTime.now();
 
-    @JsonIgnore
-    @OneToOne(optional = false)
-    private Order order;
 }

@@ -5,6 +5,5 @@ import br.com.gustavosimoes.magazine.model.Payment;
 
 public interface PaymentService extends GenericInterfaceOperations<Payment> {
 
-
     Payment save(Long idOrder, Payment payment);
 }
