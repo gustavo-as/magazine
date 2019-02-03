@@ -1,10 +1,9 @@
 package br.com.gustavosimoes.magazine.service.impl;
 
-import br.com.gustavosimoes.magazine.exception.ServiceException;
 import br.com.gustavosimoes.magazine.model.OrderItem;
 import br.com.gustavosimoes.magazine.repository.OrderItemRepository;
-import br.com.gustavosimoes.magazine.repository.OrderRepository;
 import br.com.gustavosimoes.magazine.service.OrderItemService;
+import br.com.gustavosimoes.magazine.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,7 @@ import java.util.List;
 public class OrderItemServiceImpl implements OrderItemService {
 
     @Autowired
-    protected OrderRepository orderRepository;
+    protected OrderService orderService;
 
     @Autowired
     protected OrderItemRepository orderItemRepository;
@@ -28,7 +27,7 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
-    public OrderItem findById(Long id) throws Exception {
+    public OrderItem findById(Long id) {
         return null;
     }
 
@@ -61,9 +60,9 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
-    public List<OrderItem> save(Long idOrder, List<OrderItem> orderItems) throws Exception {
+    public List<OrderItem> save(Long idOrder, List<OrderItem> orderItems){
         orderItems.forEach(orderItem -> {
-            orderItem.setOrder(orderRepository.findById(idOrder).get());
+            orderItem.setOrder(orderService.findById(idOrder));
         });
         return (List<OrderItem>) orderItemRepository.saveAll(orderItems);
     }

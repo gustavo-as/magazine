@@ -9,7 +9,7 @@ import java.util.List;
 public interface GenericInterfaceOperations<E> {
 
     E save(final E entity);
-    E findById(final Long id) throws Exception;
+    E findById(final Long id);
     void delete(final Long id);
 
     void save(final List<E> entities);

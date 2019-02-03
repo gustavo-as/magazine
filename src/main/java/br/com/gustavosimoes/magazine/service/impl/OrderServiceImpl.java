@@ -28,7 +28,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order findById(Long id) throws Exception {
+    public Order findById(Long id) {
         return null;
     }
 

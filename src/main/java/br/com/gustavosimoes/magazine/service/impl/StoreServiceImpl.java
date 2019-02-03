@@ -1,6 +1,5 @@
 package br.com.gustavosimoes.magazine.service.impl;
 
-import br.com.gustavosimoes.magazine.exception.ServiceException;
 import br.com.gustavosimoes.magazine.model.Store;
 import br.com.gustavosimoes.magazine.repository.StoreRepository;
 import br.com.gustavosimoes.magazine.service.StoreService;
@@ -23,9 +22,8 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    public Store findById(Long id) throws Exception {
-        return storeRepository.findById(id).orElseThrow(() ->
-                new ServiceException(String.format("Store not found. %s", id)));
+    public Store findById(Long id) {
+        return storeRepository.findById(id).get();
     }
 
     @Override
@@ -58,9 +56,6 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public Store findByName(String name) throws Exception {
-        Store store = storeRepository.findByName(name);
-        if(store != null)
-            return store;
-        throw new ServiceException(String.format("Store not found. %s", name));
+        return storeRepository.findByName(name);
     }
 }
