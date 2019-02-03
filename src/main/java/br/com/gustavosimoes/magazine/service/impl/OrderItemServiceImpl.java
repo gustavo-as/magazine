@@ -68,4 +68,10 @@ public class OrderItemServiceImpl implements OrderItemService {
 
         return orderService.save(order).getItems();
     }
+
+    @Override
+    public void refundOrderItem(Long id) {
+        OrderItem orderItem = orderItemRepository.findById(id).get();
+        orderItem.set
+    }
 }

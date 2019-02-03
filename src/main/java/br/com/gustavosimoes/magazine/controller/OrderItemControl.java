@@ -23,4 +23,9 @@ public class OrderItemControl {
         return orderItemService.save(idOrder, orderItems);
     }
 
+    @PutMapping("/{id}/refund")
+    public void refundOrderItem(@PathVariable Long id) {
+        orderItemService.refundOrderItem(id);
+    }
+
 }
