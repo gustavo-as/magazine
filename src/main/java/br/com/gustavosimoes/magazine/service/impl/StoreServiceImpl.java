@@ -45,13 +45,21 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public List<Store> findAll() {
-        return null;
+        return (List<Store>) storeRepository.findAll();
     }
 
     @Override
     @Transactional
     public void delete(List<Long> ids) {
 
+    }
+
+    @Override
+    public Store update(Store store) {
+        if (storeRepository.findById(store.getId()).isPresent()) {
+            return storeRepository.save(store);
+        }
+        return null;
     }
 
     @Override

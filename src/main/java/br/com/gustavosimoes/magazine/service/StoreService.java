@@ -5,6 +5,8 @@ import br.com.gustavosimoes.magazine.model.Store;
 
 public interface StoreService extends GenericInterfaceOperations<Store> {
 
+    Store update(Store store);
+
     Store findByName(String name) throws Exception;
 
 }

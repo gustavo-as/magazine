@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -21,10 +20,7 @@ public class StoreControl {
 
     @GetMapping
     public List<Store> getAll(){
-        return Arrays.asList(
-                new Store("nome1", "endereco1"),
-                new Store("nome2", "endereco2")
-        );
+        return storeService.findAll();
     }
 
     @GetMapping("/{name}")
@@ -42,10 +38,10 @@ public class StoreControl {
         return storeService.save(store);
     }
 
-    @PutMapping("/{name}")
-    public Store put(@PathVariable String name, @RequestBody Store store){
-        store.setName(store.getName() + " updated!");
-        return store;
+    @PutMapping("/{id}")
+    public Store put(@PathVariable Long id, @RequestBody Store store){
+        store.setId(id);
+        return storeService.update(store);
     }
 
 
