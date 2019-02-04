@@ -32,9 +32,9 @@ O Spotify disponibiliza um plugin para criação da imagem Docker, com o objetiv
     <plugin>
       <groupId>com.spotify</groupId>
       <artifactId>docker-maven-plugin</artifactId>
-      <version>VERSION GOES HERE</version>
+      <version>1.0.0</version>
       <configuration>
-        <imageName>example</imageName>
+        <imageName>${project.artifactId}</imageName>
         <dockerDirectory>docker</dockerDirectory>
         <resources>
            <resource>
@@ -50,6 +50,11 @@ O Spotify disponibiliza um plugin para criação da imagem Docker, com o objetiv
 </build>
 
 ```
+**Consntruir uma imagem**
+> mvn clean package docker:build
+
+** Publicar uma versão **
+> mvn clean package docker:build -DpushImage
 
 ##### * AWS
 ```text
