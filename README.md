@@ -26,14 +26,28 @@ O primeiro passo é criar um Dockerfile na raiz do projeto com as configuraçõe
 * Por fim, mas não menos importante, ENTRYPOINT o comando para executar o artefato, dentro da imagem.
 
 O Spotify disponibiliza um plugin para criação da imagem Docker, com o objetivo de abstrair os comandos docker possibilitando a criação da imagem no build da aplicação. 
-<plugin>
-    <groupId>com.spotify</groupId>
-    <artifactId>dockerfile-maven-plugin</artifactId>
-    <version>1.4.2</version>
-        <configuration>
-            <repository>emmanuelneri/${project.artifactId}-app</repository>
-        </configuration>
-</plugin>
+<build>
+  <plugins>
+    ...
+    <plugin>
+      <groupId>com.spotify</groupId>
+      <artifactId>docker-maven-plugin</artifactId>
+      <version>VERSION GOES HERE</version>
+      <configuration>
+        <imageName>example</imageName>
+        <dockerDirectory>docker</dockerDirectory>
+        <resources>
+           <resource>
+             <targetPath>/</targetPath>
+             <directory>${project.build.directory}</directory>
+             <include>${project.build.finalName}.jar</include>
+           </resource>
+        </resources>
+      </configuration>
+    </plugin>
+    ...
+  </plugins>
+</build>
 
 ```
 
