@@ -2,7 +2,7 @@ package br.com.gustavosimoes.magazine.service.impl;
 
 import br.com.gustavosimoes.magazine.model.Order;
 import br.com.gustavosimoes.magazine.model.Payment;
-import br.com.gustavosimoes.magazine.model.enumerator.EnumOrderStatus;
+import br.com.gustavosimoes.magazine.enumerator.EnumOrderStatus;
 import br.com.gustavosimoes.magazine.repository.OrderRepository;
 import br.com.gustavosimoes.magazine.repository.StoreRepository;
 import br.com.gustavosimoes.magazine.service.OrderService;

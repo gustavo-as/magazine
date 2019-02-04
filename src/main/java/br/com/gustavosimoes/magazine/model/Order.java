@@ -1,7 +1,7 @@
 package br.com.gustavosimoes.magazine.model;
 
 import br.com.gustavosimoes.magazine.generic.GenericModel;
-import br.com.gustavosimoes.magazine.model.enumerator.EnumOrderStatus;
+import br.com.gustavosimoes.magazine.enumerator.EnumOrderStatus;
 import lombok.Data;
 
 import javax.persistence.*;

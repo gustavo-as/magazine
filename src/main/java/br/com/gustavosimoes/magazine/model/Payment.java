@@ -1,7 +1,7 @@
 package br.com.gustavosimoes.magazine.model;
 
 import br.com.gustavosimoes.magazine.generic.GenericModel;
-import br.com.gustavosimoes.magazine.model.enumerator.EnumStatusPayment;
+import br.com.gustavosimoes.magazine.enumerator.EnumStatusPayment;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 

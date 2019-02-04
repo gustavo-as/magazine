@@ -1,4 +1,4 @@
-package br.com.gustavosimoes.magazine.model.enumerator;
+package br.com.gustavosimoes.magazine.enumerator;
 
 import br.com.gustavosimoes.magazine.generic.IEnum;
 
