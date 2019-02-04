@@ -24,12 +24,12 @@ public class OrderItemServiceImpl implements OrderItemService {
     @Override
     @Transactional
     public OrderItem save(OrderItem entity) {
-        return null;
+        return orderItemRepository.save(entity);
     }
 
     @Override
     public OrderItem findById(Long id) {
-        return null;
+        return orderItemRepository.findById(id).get();
     }
 
     @Override
@@ -39,25 +39,8 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
-    @Transactional
-    public void save(List<OrderItem> entities) {
-
-    }
-
-    @Override
-    public List<OrderItem> findByIds(List<Long> ids) {
-        return null;
-    }
-
-    @Override
     public List<OrderItem> findAll() {
         return null;
-    }
-
-    @Override
-    @Transactional
-    public void delete(List<Long> ids) {
-
     }
 
     @Override

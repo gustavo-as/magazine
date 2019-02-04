@@ -38,25 +38,8 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    @Transactional
-    public void save(List<Payment> entities) {
-
-    }
-
-    @Override
-    public List<Payment> findByIds(List<Long> ids) {
-        return null;
-    }
-
-    @Override
     public List<Payment> findAll() {
         return (List<Payment>) paymentRepository.findAll();
-    }
-
-    @Override
-    @Transactional
-    public void delete(List<Long> ids) {
-
     }
 
     @Override

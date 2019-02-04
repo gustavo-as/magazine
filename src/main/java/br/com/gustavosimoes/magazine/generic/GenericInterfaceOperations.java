@@ -12,9 +12,6 @@ public interface GenericInterfaceOperations<E> {
     E findById(final Long id);
     void delete(final Long id);
 
-    void save(final List<E> entities);
-    List<E> findByIds(final List<Long> ids);
     List<E> findAll();
-    void delete(final List<Long> ids);
 
 }

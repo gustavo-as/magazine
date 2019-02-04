@@ -41,26 +41,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    @Transactional
-    public void save(List<Order> entities) {
-
-    }
-
-    @Override
-    public List<Order> findByIds(List<Long> ids) {
-        return null;
-    }
-
-    @Override
     public List<Order> findAll() {
         Iterable<Order> orders = orderRepository.findAll();
         return (List<Order>) orders;
-    }
-
-    @Override
-    @Transactional
-    public void delete(List<Long> ids) {
-
     }
 
     @Override

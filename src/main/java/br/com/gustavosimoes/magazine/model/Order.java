@@ -35,6 +35,5 @@ public class Order extends GenericModel {
 
     public void addItems(List<OrderItem> orderItems) {
         this.items.addAll(orderItems);
-        System.out.println();
     }
 }

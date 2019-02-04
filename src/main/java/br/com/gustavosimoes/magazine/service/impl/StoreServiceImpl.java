@@ -33,25 +33,8 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    @Transactional
-    public void save(List<Store> entities) {
-
-    }
-
-    @Override
-    public List<Store> findByIds(List<Long> ids) {
-        return null;
-    }
-
-    @Override
     public List<Store> findAll() {
         return (List<Store>) storeRepository.findAll();
-    }
-
-    @Override
-    @Transactional
-    public void delete(List<Long> ids) {
-
     }
 
     @Override
