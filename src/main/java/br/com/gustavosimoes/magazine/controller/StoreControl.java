@@ -25,12 +25,7 @@ public class StoreControl {
 
     @GetMapping("/{name}")
     public Store getByName(@PathVariable String name){
-        try {
-            return storeService.findByName(name);
-        } catch (Exception e) {
-            log.info("StoreControl.getByName -> " + e.getMessage());
-            return null;
-        }
+        return storeService.findByName(name);
     }
 
     @PostMapping

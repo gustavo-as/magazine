@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public void delete(Long id) {
-
+        orderRepository.deleteById(id);
     }
 
     @Override
@@ -57,8 +57,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> getAllOrderPaid() {
-        List<Order> orders = orderRepository.findAllByPaymentIsNotNull();
-        return orders;
+        return orderRepository.findAllByPaymentIsNotNull();
     }
 
     @Override

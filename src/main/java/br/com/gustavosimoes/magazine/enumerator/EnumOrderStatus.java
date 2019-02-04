@@ -5,9 +5,6 @@ import br.com.gustavosimoes.magazine.generic.IEnum;
 public enum EnumOrderStatus implements IEnum {
 
     PENDING("Pending"),
-    AWAITING_PAYMENT("Awaiting Payment"),
-    AWAITING_DELIVERY("Awaiting Delivery"),
-    CANCELED("Canceled"),
     REFUNDED("Refunded");
 
     private final String description;

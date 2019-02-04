@@ -29,7 +29,7 @@ public class StoreServiceImpl implements StoreService {
     @Override
     @Transactional
     public void delete(Long id) {
-
+        storeRepository.deleteById(id);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    public Store findByName(String name) throws Exception {
+    public Store findByName(String name) {
         return storeRepository.findByName(name);
     }
 }

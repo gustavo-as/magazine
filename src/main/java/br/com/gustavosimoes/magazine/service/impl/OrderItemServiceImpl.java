@@ -40,7 +40,7 @@ public class OrderItemServiceImpl implements OrderItemService {
 
     @Override
     public List<OrderItem> findAll() {
-        return null;
+        return (List<OrderItem>) orderItemRepository.findAll();
     }
 
     @Override

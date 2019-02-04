@@ -7,6 +7,6 @@ public interface StoreService extends GenericInterfaceOperations<Store> {
 
     Store update(Store store);
 
-    Store findByName(String name) throws Exception;
+    Store findByName(String name);
 
 }

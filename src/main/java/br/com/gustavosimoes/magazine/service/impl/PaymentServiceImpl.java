@@ -23,18 +23,18 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     @Transactional
     public Payment save(Payment entity) {
-        return null;
+        return paymentRepository.save(entity);
     }
 
     @Override
     public Payment findById(Long id) {
-        return null;
+        return paymentRepository.findById(id).get();
     }
 
     @Override
     @Transactional
     public void delete(Long id) {
-
+        paymentRepository.deleteById(id);
     }
 
     @Override
@@ -42,8 +42,4 @@ public class PaymentServiceImpl implements PaymentService {
         return (List<Payment>) paymentRepository.findAll();
     }
 
-    @Override
-    public Payment save(Long idOrder, Payment payment) {
-        return null;
-    }
 }

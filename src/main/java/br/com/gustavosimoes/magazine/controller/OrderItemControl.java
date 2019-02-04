@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/order-tems")
+@RequestMapping("/order-item")
 public class OrderItemControl {
 
     private static final Logger log = LoggerFactory.getLogger(OrderItemControl.class);

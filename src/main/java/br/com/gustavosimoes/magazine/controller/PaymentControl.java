@@ -1,7 +1,6 @@
 package br.com.gustavosimoes.magazine.controller;
 
 import br.com.gustavosimoes.magazine.model.Payment;
-import br.com.gustavosimoes.magazine.model.Store;
 import br.com.gustavosimoes.magazine.service.PaymentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
