@@ -43,7 +43,7 @@ jobs:
 
       # run tests!
       # - run: mvn integration-test
-   deploy:
+  deploy:
     machine:
         enabled: true
     environment:
