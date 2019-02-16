@@ -16,10 +16,14 @@ jobs:
 
     working_directory: ~/magazine
 
+    machine:
+        enabled: true
+
     environment:
       # Customize the JVM maximum heap limit
       MAVEN_OPTS: -Xmx3200m
-
+      HEROKU_APP: still-shelf-38337
+      
     steps:
       - checkout
 
@@ -30,7 +34,11 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: mvn dependency:go-offline
+      - run: 
+          mvn dependency:go-offline
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:$6b338a2e-75bd-4186-88b2-f2f55e0fe355@git.heroku.com/$magazine-invillia.git master
 
       - save_cache:
           paths:
@@ -39,21 +47,4 @@ jobs:
 
       # run tests!
       # - run: mvn integration-test
-      
-      deploy:
-    machine:
-        enabled: true
-    working_directory: ~/magazine
-    environment:
-      HEROKU_APP: still-shelf-38337
-    steps:
-      - restore_cache:
-          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-      - restore_cache:
-          key: v1-bundle-{{ checksum "Gemfile.lock" }}
-      - restore_cache:
-          key: v1-assets-{{ .Environment.CIRCLE_SHA1 }}
-      - run:
-          name: Deploy Master to Heroku
-          command: |
-            git push https://heroku:$6b338a2e-75bd-4186-88b2-f2f55e0fe355@git.heroku.com/$magazine-invillia.git master
+   
