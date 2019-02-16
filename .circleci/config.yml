@@ -1,5 +1,14 @@
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: magazine-heroku
+version: 2.0
+
+jobs:
+  deploy:
+    machine:
+        enabled: true
+    working_directory: ~/magazine
+    environment:
+      HEROKU_APP: still-shelf-38337
+    steps:
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:$6b338a2e-75bd-4186-88b2-f2f55e0fe355@git.heroku.com/$magazine-heroku.git master
